@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css">
+<style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+body{
+        background-color: #e1dad0;
+        margin: 0;
+        font-family: Poppins;
+        font-size: 15px;
+    
+
+}
+      
+
+
+ header .logo{
+    font-weight: bold;
+    font-size: 44px;
+    font-family: poppins;
+    color: #e7e0e9; 
+    padding-left:-37px ;
+}
+header span{
+    font-weight: bold;
+    font-size: 44px;
+    font-family: 'lobster',cursive;
+    color: #e7e0e9; 
+    padding-left:-37px ;
+}
+
+header{
+    width: 1140px;
+    max-width: 90%;
+    margin: auto;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+header nav{
+    display: flex;
+    gap:40px;
+}
+header nav a{
+    text-decoration: none;
+    color: #eee;
+    font-weight: 500;
+
+}
+.carousel{
+    width: 100%;
+    background-color: #555;
+    height: 720px;
+    color: #eee;
+    margin-top: -50px;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.carousel .list{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+.carousel .list .item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.carousel .list .item::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    content: var(--title);
+    font-size: 15em;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #eee4;
+    z-index: -1;
+}
+.carousel .list .item .image{
+    flex-shrink: 0;
+    width: 300px;
+    height: 425px;
+    --left:-600px ;
+    background:
+    var(--img-src) var(--left) 0,
+    url(./images/soda.png)  no-repeat;
+    background-size: 100% auto;
+    background-blend-mode:multiply ;
+    -webkit-mask-image:url(./images/soda.png);
+    -webkit-mask-repeat:no-repeat;
+    -webkit-mask-size:100% auto;
+      mask-image:url(./images/soda.png);
+      mask-size:100% auto;
+     mask-repeat:no-repeat;
+     transition: background 1s ease-in-out;
+}
+.carousel .list .item .content{
+    width: 1140px;
+    max-width: 90%;
+    margin: auto;  
+    height: 100%;
+    padding-top: 50px;
+    box-sizing: border-box;
+    display: flex;
+    gap: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.carousel .list .item  .info .title{
+    font-size: 6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1em;
+}
+.carousel .list .item .info .category{
+    opacity: .7;
+
+}
+.carousel .list .item .info .des{
+ margin: 1em 0;
+}
+.carousel .list .item .info a{
+display: inline-flex;
+gap: 20px;
+text-decoration: none;
+color: #eee;
+font-weight: 500;
+
+}
+.carousel .list .item{
+    z-index: 1;
+}
+.carousel .list .item.active{
+    z-index: 2;
+}
+.carousel .list .item.active .image{
+    --left:0;
+}
+.arrows button{
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-family: monospace;
+    font-size: large;
+    background-color: #eee3;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    left: 10%;
+    transition: background 0.5s, 
+              color 0.5s;
+}
+.arrows button#next{
+    left: unset;
+    right: 10%;
+}
+.arrows button:hover{
+    background-color: #eee;
+    color: #000;
+}
+.dots li{
+    width: 15px;
+    height: 15px;
+    background-color: #eee5;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+.dots li.active{
+    background-color: #eee;
+
+}
+.dots{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    bottom:  1px;
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    bottom: 70px;
+    z-index:2;
+    width: max-content;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: background 0.5s;
+}
+
+@media screen and (max-width:950px)  {
+
+    .logo{
+        width: 56px;
+    }
+    .carousel{
+        height: 100vh;
+     
+    }
+    .carousel .list .item .info{
+        position: absolute;
+        bottom: 10%;
+        width: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        backdrop-filter: blur(20px);
+
+    }
+
+    .carousel .list .item .info .title{
+        font-size: 2em;
+    }
+    .carousel .list .item .info .des{
+        font-size: 0.8em;
+        text-align: justify;
+
+    }
+    .carousel .list .item .content{
+        justify-content: center;
+        align-items: start;
+
+    }
+    .arrows button{
+   top: unset;
+   bottom: 20px;
+
+    }
+
+}
+
+    .arrows.effect .item.active{
+        --transform-from: -300px;
+        --transform-to: 0px
+    }
+    @keyframes tramsformAnimation{
+        from{
+            transform: translateX(var(--transform-from));
+        }to{
+            transform: translateX(var(--transform-to)) ;
+        }
+    }
+.carousel.effect .item .image{
+    animation: transformAnimation 1s ease-in-out 1 forwards;
+}
+
+</style>
+</head>
+<body>
+    <header>
+   <div class="logo">
+    Jeff. <span>CO</span>
+   </div>
+   <nav>
+ <a href="./">Home</a>
+ <a href="">Info</a>
+ <a href="">Contact</a>
+   </nav>
+    </header>
+
+    <!-- slider -->
+     <div class="carousel">
+        <div class="list">
+            <div class="item active"
+            style="
+           --img-src: url('images/img3.png');
+           --bg-color:#428372;
+           --title: 'lemon'
+            ">
+                <div class="content">  
+                    <div class="image">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                Lemon-Flavoured soda
+                            </div>
+                            <div class="categories">
+                                soft drinks
+                            </div>
+                            <div class="des">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem esse commodi dolorem labore quos asperiores voluptates, numquam tempore molestiae placeat veritatis non, animi veniam recusandae maxime laudantium voluptatibus <br> illum a deleniti, delectus eligendi ad harum adipisci. Alias rem eum, vero dolore distinctio, blanditiis placeat iste, consequuntur optio provident quis assumenda nesciunt similique eius ducimus culpa quidem in!
+                            </div>
+                            <a href="./cart.html">
+                            See More
+                            <span>&#8594</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        
+            
+    <!-- slider -->
+     <div class="carousel">
+        <div class="list">
+            <div class="item"
+            style="
+           --img-src: url('images/img1.png');
+           --bg-color:#2b5665;
+           --title: 'Pepsi'
+            ">
+                <div class="content">
+                    <div class="image">
+                        </div>
+                        <div class="info">
+                            <div class="title">
+                                cola-Flavoured soda
+                            </div>
+                            <div class="categories">
+                                soft drinks
+                            </div>
+                            <div class="des">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem esse commodi dolorem labore quos asperiores voluptates, numquam tempore molestiae placeat veritatis non, animi veniam recusandae maxime laudantium voluptatibus <br> illum a deleniti, delectus eligendi ad harum adipisci. Alias rem eum, vero dolore distinctio, blanditiis placeat iste, consequuntur optio provident quis assumenda nesciunt similique eius ducimus culpa quidem in!
+                            </div>
+                            <a href="./cart.html">
+                            See More
+                            <span>&#8594</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            
+            <!-- slider -->
+             <div class="carousel">
+                <div class="list">
+                    <div class="item"
+                    style="
+                   --img-src: url('images/img2.ng.jpeg');
+                   --bg-color:#4f5553;
+                   --title: 'locozade'
+                    ">
+                        <div class="content">
+                            <div class="image">
+                                
+                            </div>
+                                <div class="info">
+                                    <div class="title">
+                                        citric-Flavour energydrink
+                                    </div>
+                                    <div class="categories">
+                                        soft drinks
+                                    </div>
+                                    <div class="des">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem esse commodi dolorem labore quos asperiores voluptates, numquam tempore molestiae placeat veritatis non, animi veniam recusandae maxime laudantium voluptatibus <br> illum a deleniti, delectus eligendi ad harum adipisci. Alias rem eum, vero dolore distinctio, blanditiis placeat iste, consequuntur optio provident quis assumenda nesciunt similique eius ducimus culpa quidem in!
+                                    </div>
+                                    <a href="./cart.html">
+                                    See More
+                                    <span>&#8594</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                
+     </div>
+<div class="arrows">
+    <button id="prev"><<button>
+        <button id="next">></button>
+</div>
+<ul class="dots">
+    <li class="active"></li>
+    <li></li>
+    <li></li>
+
+</ul>
+</div>
+ 
+
+    <script src="./cart.js"></script>
+</body>
+</html>
